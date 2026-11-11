@@ -164,3 +164,4 @@ The raw metric tables were obtained from [`awsm-research/DefectData`](https://gi
 This is the **software-quality / cross-version generalization** application in a five-project portfolio. It reuses the [metaheuristics-lab](https://github.com/Ehsan-Rezaeii/metaheuristics-lab) optimizer package as a real pinned dependency. The other applications study [breast cancer feature selection](https://github.com/Ehsan-Rezaeii/breast-cancer-feature-selection), [SQL injection detection](https://github.com/Ehsan-Rezaeii/sqli-detection-lab), and [search-based test generation](https://github.com/Ehsan-Rezaeii/search-based-test-generation). Their metrics and datasets are different, so the numerical outcomes should not be compared directly.
 
 **Code license:** [MIT](LICENSE). Upstream dataset and publication rights remain separate.
+
