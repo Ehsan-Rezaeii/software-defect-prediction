@@ -1,6 +1,6 @@
 # Verification and reproduction evidence
 
-The primary scientific run is complete. Engineering verification and CI observations are recorded below; planned checks are explicitly identified until observed. Raw files are ignored, and CI uses committed anonymous artifacts without downloading data or rerunning the study.
+The primary scientific run is complete. Local verification and the observed green CI matrix are recorded below. Raw files are ignored, and CI uses committed anonymous artifacts without downloading data or rerunning the study.
 
 ## Committed sequence
 
@@ -113,10 +113,31 @@ The report command was executed once for the primary output. It writes the prima
 
 ## GitHub Actions
 
-The committed workflow has Python 3.10, 3.12 and 3.13 jobs. CI runs lint/format, Markdown fences, pytest with coverage, synthetic smoke, saved-artifact audit, build and isolated wheel import/smoke. CI does not download the dataset or execute `develop`/`final`. Actual CI run/job URLs and tested SHA will be appended after observation; no green status is claimed here yet.
+The committed workflow has Python 3.10, 3.12 and 3.13 jobs. CI runs lint/format, Markdown fences, pytest with coverage, synthetic smoke, saved-artifact audit, build and isolated wheel import/smoke. CI does not download the dataset or execute `develop`/`final`. The [observed successful PR run](https://github.com/Ehsan-Rezaeii/software-defect-prediction/actions/runs/43008485197) tested head SHA `6f63f4f9763c9bc8e5b839efa4a24944b8064980`. All steps and all three jobs completed successfully:
+
+| Python | Actual job | Observed conclusion |
+|---|---|---|
+| 3.10 | [130481826818](https://github.com/Ehsan-Rezaeii/software-defect-prediction/actions/runs/43008485197/job/130481826818) | success |
+| 3.12 | [130481826850](https://github.com/Ehsan-Rezaeii/software-defect-prediction/actions/runs/43008485197/job/130481826850) | success |
+| 3.13 | [130481826394](https://github.com/Ehsan-Rezaeii/software-defect-prediction/actions/runs/43008485197/job/130481826394) | success |
+
+The run includes uploaded coverage XML artifacts for each Python version. This evidence was observed through GitHub's run/job API, not inferred from configuration or local tests. The subsequent documentation-only commit records these observations; the PR's latest-head checks are also verified at handoff. [Open, unmerged PR](https://github.com/Ehsan-Rezaeii/software-defect-prediction/pull/1).
 
 ## Observed local completion checks
 
 The final local run passed **36 tests, zero failures and zero skips**, in 8.35 seconds on Python 3.12.14. Overall statement coverage was **60% (419/701 statements)**; the artifact auditor reached 99%, estimator/metric module 90%, and optimizer adapter 96%. The CLI and report generator were executed as commands but are not covered by the pytest measurement. The [complete pytest coverage output](COVERAGE.txt) records the per-module figures and uncovered lines; no coverage threshold is claimed.
 
 The final `ruff check .`, `ruff format --check .`, explicit Markdown check, synthetic offline smoke, sealed saved-artifact audit and clean sdist/wheel builds all passed. The inspected target-comparison figure agrees with the saved eight-method summary table. The freeze/STARTED/COMPLETED machine timestamps remain in their original artifacts; they demonstrate a committed/pushed freeze before the sole predictive target pass.
+
+
+The final built wheel was additionally installed into a second fresh environment after the README/results were generated. Both imports resolved under `/tmp/sdp-final-wheel/lib/python3.12/site-packages/`; Project 1's installed `direct_url.json` confirmed commit `6b4ef0fa3d72f608146f3dd7eabb84bf39fa896e`. Its smoke run also passed with HTTP(S) proxies pointed to an unreachable local port. The exact additional commands were:
+
+```bash
+python -m venv /tmp/sdp-final-wheel
+/tmp/sdp-final-wheel/bin/pip install dist/*.whl
+cd /tmp
+/tmp/sdp-final-wheel/bin/python -c 'import software_defect_prediction, metaheuristics_lab; print(software_defect_prediction.__file__, metaheuristics_lab.__file__)'
+HTTPS_PROXY=http://127.0.0.1:9 HTTP_PROXY=http://127.0.0.1:9 /tmp/sdp-final-wheel/bin/sdp smoke
+```
+
+`sdp audit-data` was also executed successfully after the run, reconfirming both releases' fixed identity/schema/count/duplicate metadata without fitting a model. A Git diff from freeze to final source/config/tests/CI is empty; the scientific implementation and artifacts were preserved.
