@@ -11,3 +11,7 @@ The approved scientific protocol is unchanged. These details resolve implementat
 - `requirements.lock` records the measured Python 3.12 environment. CI resolves the fixed direct dependencies on Python 3.10/3.12/3.13; platform/Python-specific transitive versions may differ. The scientific final stage requires the exact development environment.
 - Immutable output guards preserve STARTED evidence after failures. Reports derive from saved probabilities, with no refitting; the final artifact manifest seals all output files. Reproductions require a new output directory and their own committed/pushed freeze.
 - Python Markdown fences are checked explicitly by `scripts/check_markdown.py`, because Ruff itself does not traverse Markdown documents. Long prose literals in the report generator have a file-specific line-length exception; Python formatting and all other lint rules still apply.
+
+## Pre-freeze engineering audit
+
+The full development run completed from code commit `5c8a93b` in 21.269 seconds with 2,160 calls, 6,480 inner fits and 24 outer fits. The independent development audit passed. Before freeze, the artifact auditor gained explicit Git ancestry/manifest-byte verification and a final sealed-output hash check; these audit-only additions do not change training, masks, methods, predictions or the scientific protocol. Actual acquired hashes and the upstream package-license declaration were also documented. No target predictive evaluation had occurred at that point.

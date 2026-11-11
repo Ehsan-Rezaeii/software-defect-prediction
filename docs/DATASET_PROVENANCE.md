@@ -36,3 +36,14 @@ These observations motivate development-only group-aware CV and honest reporting
 ## Attribution
 
 Collection: `awsm-research/DefectData`, pinned source above. Dataset lineage: Jureczko and Madeyski, *Towards Identifying Software Project Clusters with Regard to Defect Prediction*, PROMISE 2010, DOI [10.1145/1868328.1868342](https://doi.org/10.1145/1868328.1868342). The [DefectData collection](https://github.com/awsm-research/DefectData) publishes descriptive summaries. Some class identifiers overlap between historical releases; do not characterize this as independent-project transfer.
+
+## Acquisition measurements from this implementation
+
+Both immutable URLs were downloaded as raw bytes. Git blob SHA-1, byte sizes, positional headers, all counts, and all overlap/duplicate/conflict checks above passed before scientific training.
+
+| File | Actual SHA-256 |
+|---|---|
+| `camel-1.4.csv` | `7ad753be3f225aed336b22a0a605b75833341fb131a07413779f0d0889f043e7` |
+| `camel-1.6.csv` | `358ef9bb9a0ddf091100b7dec838b92821bb13ae967670c6bd47f8da6dff5138` |
+
+The [machine-readable manifest](../results/study/dataset_manifest.json) preserves the URLs and all measured checks. The collection's pinned [DESCRIPTION](https://github.com/awsm-research/DefectData/blob/7d9a07306ef651fb909344be359dc3523f1db8c5/DESCRIPTION) declares `License: MIT`; a root `LICENSE` file was not found at this revision. That package declaration does not establish blanket rights for every underlying historical corpus. Raw CSV redistribution is avoided. Project 1's optimizer package is MIT licensed; it is installed as an attributed direct dependency and its code is not vendored.

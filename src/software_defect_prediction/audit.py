@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -185,6 +186,28 @@ def audit_results(root: Path, output: Path):
     freeze = read_json(output / "freeze.json")
     start, completed = [read_json(output / f"{name}.json") for name in ["STARTED", "COMPLETED"]]
     assert start["freeze_sha"] == completed["freeze_sha"]
+    freeze_sha = start["freeze_sha"]
+    relative = str((output / "freeze.json").relative_to(root))
+    frozen_bytes = subprocess.check_output(
+        ["git", "-C", str(root), "show", f"{freeze_sha}:{relative}"]
+    )
+    assert frozen_bytes == (output / "freeze.json").read_bytes()
+    subprocess.run(
+        ["git", "-C", str(root), "merge-base", "--is-ancestor", freeze["base_commit"], freeze_sha],
+        check=True,
+    )
+    subprocess.run(
+        ["git", "-C", str(root), "merge-base", "--is-ancestor", freeze_sha, "HEAD"], check=True
+    )
+    if (output / "artifact_manifest.json").exists():
+        sealed = read_json(output / "artifact_manifest.json")
+        assert set(sealed) == {
+            str(p.relative_to(output))
+            for p in output.rglob("*")
+            if p.is_file() and p.name != "artifact_manifest.json"
+        }
+        for name, digest in sealed.items():
+            assert sha256((output / name).read_bytes()) == digest, name
     assert completed["freeze_digest"] == sha256((output / "freeze.json").read_bytes())
     assert (
         datetime.fromisoformat(freeze["created"])
