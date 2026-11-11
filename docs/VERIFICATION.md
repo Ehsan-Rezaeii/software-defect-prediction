@@ -121,7 +121,7 @@ The committed workflow has Python 3.10, 3.12 and 3.13 jobs. CI runs lint/format,
 | 3.12 | [130481826850](https://github.com/Ehsan-Rezaeii/software-defect-prediction/actions/runs/43008485197/job/130481826850) | success |
 | 3.13 | [130481826394](https://github.com/Ehsan-Rezaeii/software-defect-prediction/actions/runs/43008485197/job/130481826394) | success |
 
-The run includes uploaded coverage XML artifacts for each Python version. This evidence was observed through GitHub's run/job API, not inferred from configuration or local tests. The subsequent documentation-only commit records these observations; the PR's latest-head checks are also verified at handoff. [Open, unmerged PR](https://github.com/Ehsan-Rezaeii/software-defect-prediction/pull/1).
+The run includes uploaded coverage XML artifacts for each Python version. This evidence was observed through GitHub's run/job API, not inferred from configuration or local tests. The subsequent documentation-only commit records these observations; the PR's latest-head checks are also verified at handoff. [PR #1 (merged into main on November 11, 2026)](https://github.com/Ehsan-Rezaeii/software-defect-prediction/pull/1).
 
 ## Observed local completion checks
 
