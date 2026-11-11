@@ -1,0 +1,42 @@
+name: verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.10', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e '.[dev]'
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: python scripts/check_markdown.py
+      - run: pytest --cov=software_defect_prediction --cov-report=term-missing --cov-report=xml
+      - run: sdp smoke
+      - name: Audit saved outputs without fitting or downloading data
+        if: ${{ hashFiles('results/study/COMPLETED.json') != '' }}
+        run: sdp audit-results
+      - run: python -m build
+      - name: Install wheel outside checkout and import Project 1
+        shell: bash
+        run: |
+          python -m venv /tmp/sdp-wheel
+          /tmp/sdp-wheel/bin/pip install dist/*.whl
+          cd /tmp
+          /tmp/sdp-wheel/bin/python -c 'import software_defect_prediction, metaheuristics_lab; print(software_defect_prediction.__file__, metaheuristics_lab.__file__)'
+          /tmp/sdp-wheel/bin/sdp smoke
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.python }}
+          path: coverage.xml

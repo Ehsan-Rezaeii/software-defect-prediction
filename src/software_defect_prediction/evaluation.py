@@ -66,6 +66,7 @@ def metrics(y: np.ndarray, probability: np.ndarray) -> dict:
     predicted = probability >= 0.5
     tn, fp, fn, tp = map(int, confusion_matrix(y, predicted, labels=[0, 1]).ravel())
     den = float((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn)) ** 0.5
+    both = len(set(y)) == 2
     return {
         "n": len(y),
         "positive": tp + fn,
@@ -76,9 +77,9 @@ def metrics(y: np.ndarray, probability: np.ndarray) -> dict:
         "fn": fn,
         "tp": tp,
         "mcc": (tp * tn - fp * fn) / den if den else None,
-        "f1": 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn else None,
-        "recall": tp / (tp + fn) if tp + fn else None,
-        "precision": tp / (tp + fp) if tp + fp else None,
+        "f1": 2 * tp / (2 * tp + fp + fn) if both and 2 * tp + fp + fn else None,
+        "recall": tp / (tp + fn) if both and tp + fn else None,
+        "precision": tp / (tp + fp) if both and tp + fp else None,
         "ap": float(average_precision_score(y, probability)) if len(set(y)) == 2 else None,
         "predicted_positive_fraction": float(predicted.mean()),
     }
