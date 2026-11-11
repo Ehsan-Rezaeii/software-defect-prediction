@@ -1,0 +1,8 @@
+{
+  "objective_calls": 2160,
+  "objective_fits": 6480,
+  "outer_fits": 24,
+  "target_fits": 8,
+  "target_rows": 965,
+  "freeze_sha": "4140a5124bd76a4710c39da5a9053accccdd26f9"
+}

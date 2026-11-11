@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.4.2, pluggy-1.7.0
+rootdir: /workspace/software-defect-prediction
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-7.0.0
+collected 36 items
+
+tests/test_artifacts.py ....                                             [ 11%]
+tests/test_data.py ......                                                [ 27%]
+tests/test_evaluation.py ...........                                     [ 58%]
+tests/test_selection.py .......                                          [ 77%]
+tests/test_study.py ........                                             [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.14-final-0 _______________
+
+Name                                           Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------------
+src/software_defect_prediction/__init__.py         1      0   100%
+src/software_defect_prediction/audit.py          158      2    99%   137-138
+src/software_defect_prediction/cli.py             35     35     0%   3-60
+src/software_defect_prediction/data.py            87     37    57%   52, 61, 71-73, 89-93, 98, 102-130
+src/software_defect_prediction/evaluation.py      62      6    90%   32, 54, 61, 65, 97, 105
+src/software_defect_prediction/report.py         117    117     0%   3-291
+src/software_defect_prediction/selection.py       45      2    96%   41, 55
+src/software_defect_prediction/smoke.py           15      0   100%
+src/software_defect_prediction/study.py          181     83    54%   63, 81, 85-181, 186-199, 203-223, 232, 243, 250-251, 253, 272
+----------------------------------------------------------------------------
+TOTAL                                            701    282    60%
+Coverage XML written to file coverage.xml
+============================== 36 passed in 8.35s ==============================

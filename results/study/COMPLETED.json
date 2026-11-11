@@ -1,0 +1,12 @@
+{
+  "time": "2026-11-11T10:57:33.201416+00:00",
+  "freeze_sha": "4140a5124bd76a4710c39da5a9053accccdd26f9",
+  "freeze_digest": "b0559b2ee6137241146f5a1988e47f8d9c1f0d4847090dabf9344203011a24e7",
+  "classifier_fits": 8,
+  "files": {
+    "STARTED.json": "994042bc9cb97d129b5b7dad7fd7b2466637667ce30a8f64510ca61ac8239c72",
+    "target_predictions.json": "5aed8fbbe89a8dfbdf3d63df02624bdbc2da356f16540ec8402a41fb559434e4",
+    "target_metrics.json": "71e34a2dd4aa3cd40369197d16c88fa08d230a55e86d6bae0f901904a7b93257",
+    "target_timing.json": "a7e7b258ff6ac330b4bfb0e94aec5710f373cfe89cda18c148f50de3c2c2808b"
+  }
+}

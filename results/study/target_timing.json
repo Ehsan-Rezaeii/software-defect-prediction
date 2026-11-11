@@ -1,0 +1,42 @@
+{
+  "all_features": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.004283240999939153,
+    "predict_seconds": 0.00043787600009181915
+  },
+  "all_features_weighted": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.0036320319999276762,
+    "predict_seconds": 0.00031810799998766015
+  },
+  "all_features_smote": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.007706484999971508,
+    "predict_seconds": 0.00036305499997979496
+  },
+  "select_k_best": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.003207816999974966,
+    "predict_seconds": 0.00040021899997100263
+  },
+  "binary_ga": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.0022996589999593198,
+    "predict_seconds": 0.00035271999990982295
+  },
+  "binary_gwo_s": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.0025331929999765634,
+    "predict_seconds": 0.00037760600002911815
+  },
+  "binary_gwo_v": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.0022905150000269714,
+    "predict_seconds": 0.00024309800005539728
+  },
+  "binary_random_search": {
+    "classifier_fits": 1,
+    "fit_seconds": 0.0019017119999489296,
+    "predict_seconds": 0.0002519409999877098
+  }
+}
