@@ -1,0 +1,23 @@
+{
+  "COMPLETED.json": "a6ec8f517baac2cbd8601f221b02757c3ebfc8c6bdb0e1f3d5318e4fc2dfb4a8",
+  "DEVELOPMENT_STARTED.json": "0b646dc991dd955e27080ea943823821915975c1b417946b8a64545b42e15883",
+  "STARTED.json": "994042bc9cb97d129b5b7dad7fd7b2466637667ce30a8f64510ca61ac8239c72",
+  "audit_report.json": "113a7964aab66ca8edd8f663803224f30210d574e7296d0ab28362287ac7b8dd",
+  "dataset_manifest.json": "c18e39e7af36e52c6db5618bbe3750f874d264458d4862e0dcad01198728b187",
+  "development.json": "da23361619466ffb98d90e8d4adf007c45975fff540f77309d6711e04adde38c",
+  "environment.json": "eb0efc079ace8d6703148d857dfd2450562d67a29e75d6b70687cbcbc50b1c31",
+  "figures/confusion_matrices.png": "dfff61c69619f8486ae4fed347d647c07c3478033b3ca6a2b1cdf8229b4577e8",
+  "figures/fitness_traces.png": "ed43d46ae7be9188f1ae4e4b7339c0f46d7d7f6e7d3f5622b02c55ba25967b1a",
+  "figures/frozen_masks.png": "5ab2dcf2bb2890dd0e4486b030a2650018a7bc30b4a5803af12783b2c00721e2",
+  "figures/precision_recall.png": "048f4acb3e16acb4454efa4ac440bc060e6453461db2e1c5434e25c3cfa92612",
+  "figures/search_cost.png": "e05914826c75d32bf4f699473914c319f6560297f8a55da3c5a4525ecf84a4d9",
+  "figures/target_comparison.png": "91d99dad63247864e8f2c4249b69e27de53e6cf0df12c38073eab03fb4514fcf",
+  "freeze.json": "b0559b2ee6137241146f5a1988e47f8d9c1f0d4847090dabf9344203011a24e7",
+  "freeze.sha256": "d3fb8c96b4293d592297c7e2bfcafbcb5b02fbc693015192197f00703123bb89",
+  "settings.json": "e2cf006f3a51503fe36540ba178b308f37a509bb9c364342ee2069dbec401875",
+  "source_rows.json": "874c8ade4bbae2691436442a666f4b7fdfbe5d2917bd07621d0c2e53d3a4c95c",
+  "target_metrics.json": "71e34a2dd4aa3cd40369197d16c88fa08d230a55e86d6bae0f901904a7b93257",
+  "target_predictions.json": "5aed8fbbe89a8dfbdf3d63df02624bdbc2da356f16540ec8402a41fb559434e4",
+  "target_summary.csv": "3e58dbf039178e41474b71f068aa8896d5e7f38e54891b60681f596a14c9bed8",
+  "target_timing.json": "a7e7b258ff6ac330b4bfb0e94aec5710f373cfe89cda18c148f50de3c2c2808b"
+}

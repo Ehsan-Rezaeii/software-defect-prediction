@@ -1,0 +1,46 @@
+{
+  "methods": [
+    "all_features",
+    "all_features_weighted",
+    "all_features_smote",
+    "select_k_best",
+    "binary_ga",
+    "binary_gwo_s",
+    "binary_gwo_v",
+    "binary_random_search"
+  ],
+  "population_size": 12,
+  "budget": 90,
+  "outer_seed": 2027,
+  "inner_seed": 2028,
+  "full_seeds": [
+    0,
+    1,
+    2
+  ],
+  "outer_search_seed_policy": "zero-based outer fold index (0,1,2), shared by all searches",
+  "lr": {
+    "solver": "liblinear",
+    "C": 1.0,
+    "max_iter": 2000,
+    "random_state": 0
+  },
+  "threshold": 0.5,
+  "smote": {
+    "random_state": 2029,
+    "k_neighbors": 5
+  },
+  "filter": {
+    "score_func": "f_classif",
+    "k": 10
+  },
+  "objective": {
+    "mcc": 0.6,
+    "ap": 0.4,
+    "features": 0.02,
+    "empty": 2.0
+  },
+  "undefined_objective_mcc": 0.0,
+  "dependency_sha": "6b4ef0fa3d72f608146f3dd7eabb84bf39fa896e",
+  "final_candidate_policy": "highest mean outer MCC; ties by fewer features then method name"
+}

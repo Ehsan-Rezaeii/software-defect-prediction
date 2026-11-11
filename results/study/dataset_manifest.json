@@ -1,0 +1,36 @@
+{
+  "revision": "7d9a07306ef651fb909344be359dc3523f1db8c5",
+  "files": {
+    "camel-1.4.csv": {
+      "url": "https://raw.githubusercontent.com/awsm-research/DefectData/7d9a07306ef651fb909344be359dc3523f1db8c5/inst/extdata/terapromise/ck/camel-1.4.csv",
+      "sha256": "7ad753be3f225aed336b22a0a605b75833341fb131a07413779f0d0889f043e7",
+      "git_blob": "5dd841b2533d98dcc7674be4876884c2fd01c12e",
+      "bytes": 110163,
+      "rows": 872,
+      "positive": 145,
+      "negative": 727,
+      "class_ids": 872,
+      "duplicate_groups": 31,
+      "excess_rows": 70,
+      "conflict_groups": 0
+    },
+    "camel-1.6.csv": {
+      "url": "https://raw.githubusercontent.com/awsm-research/DefectData/7d9a07306ef651fb909344be359dc3523f1db8c5/inst/extdata/terapromise/ck/camel-1.6.csv",
+      "sha256": "358ef9bb9a0ddf091100b7dec838b92821bb13ae967670c6bd47f8da6dff5138",
+      "git_blob": "2a83022e493aad7061cf8406db69a1de1e466b2d",
+      "bytes": 122104,
+      "rows": 965,
+      "positive": 188,
+      "negative": 777,
+      "class_ids": 965,
+      "duplicate_groups": 38,
+      "excess_rows": 84,
+      "conflict_groups": 3
+    }
+  },
+  "overlap": {
+    "class_ids": 857,
+    "vectors": 296,
+    "unseen_ids": 108
+  }
+}
